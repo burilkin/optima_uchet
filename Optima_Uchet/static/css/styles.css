@@ -1,0 +1,202 @@
+/* ==============================
+========== MAIN BLOCKS ==========
+============================== */
+
+html,
+body,
+#mainContainer
+{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#mainContainer
+{
+    overflow: hidden;
+}
+
+#header
+{
+    background: #ccc;
+    height: 50px;
+}
+
+#content
+{
+    background: #aaa;
+    vertical-align: middle;
+    height: calc(100% - 50px);   /* Высота страницы - высота шапки */
+}
+
+.leftCol
+{
+    float: left;
+    height: 100%;
+    width: 200px;
+}
+
+.rightCol
+{
+    height: 100%;
+    margin: 0 0 0 200px;
+}
+
+.clear {clear:both;}
+
+#sidebar
+{
+    background: red;
+}
+
+#workArea
+{
+    background: blue;
+}
+
+/* ==========================
+========== SIDEBAR ==========
+========================== */
+
+/* ===== Hide & show sidebar button ===== */
+
+#hideShowSidebarBtn
+{
+    background: green;
+    border: 3px solid #00ff33;
+    display: block;
+    color: #fff;
+    height: 30px;
+    width: 100%;
+}
+
+/* ===== Sidebar menu ===== */
+
+#sidebarInner
+{
+    height: calc(100% - 30px);   /* Высота сайдбара - высота кнопки "Свернуть/развернуть  */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.sidebarMenu
+{
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebarMenu li
+{
+    border-bottom: 1px solid #555;
+    display: block;
+    margin: 0;
+    padding: 3px 10px;
+}
+
+.hideShowSidebarMenuBtn
+{
+    background: #eee;
+    border: 3px solid #aaa;
+    display: block;
+    width: 100%;
+}
+
+/* ============================
+========== WORK AREA ==========
+============================ */
+
+/* ===== Work area carcase ===== */
+#workAreaTitle
+{
+    box-sizing: border-box;
+    height: 30px;
+    line-height: 30px;
+}
+
+#workAreaMiddle
+{
+    box-sizing: border-box;
+    height: calc(100% - 280px);
+    overflow: auto;
+    width: 100%;
+}
+
+#workAreaFooter
+{
+    height: 250px;
+}
+
+/* ===== Work area middle ===== */
+
+#workAreaMainMenu
+{
+    background: #dddd00;
+    left: 200px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: fixed;
+    top: 80px;
+    width: calc(100% - 200px);
+    z-index: 1;
+}
+
+#workAreaMainMenu.hidden
+{
+    height: 30px;
+}
+
+#workAreaMainMenu.showed
+{
+    height: auto;
+}
+
+#workAreaMainMenu .title
+{
+    background: deepskyblue;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0 10px;
+    text-align: left;
+}
+
+#workAreaMainMenu .content
+{
+    display: none;
+    margin: 0;
+    padding: 10px;
+}
+
+#workAreaContent
+{
+    box-sizing: border-box;
+    height: calc(100% - 30px);
+    margin-top: 30px;
+    overflow: scroll;
+    width: 100%;
+}
+
+/* ===== Tables ===== */
+
+.workAreaTable
+{
+    background: #fff;
+    border: 0;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.workAreaTable tr td
+{
+    border: 1px solid #555;
+    margin: 0;
+    padding: 2px;
+}

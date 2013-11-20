@@ -1,0 +1,67 @@
+{% extends "main.html" %}
+
+{% block workAreaTitle %}Заголовок 1{% endblock %}
+
+{% block workAreaMainMenuTitle %}Поиск{% endblock %}
+
+{% block workAreaMainMenuContent %}
+<form action="/invoices/" method="get" id="invoices">
+    {% for field in form %}
+        <div>{{ field }}</div>
+    {% endfor %}
+    {{ tools.elements }}
+    <input type="submit" value="Поиск" />
+</form>
+{% endblock %}
+
+{% block workAreaContent %}
+<table class="workAreaTable">
+    <tr>
+    {% for field in form %}
+        <td>
+        {% if column == field.name%}
+            <a style="color: red" href=/invoices/?sort={{ newsort }}&sort={{field.name}}&{{ sorturl }}>
+            {{ newsym }} {{ field.label }} {{ newsym }}
+        {% else %}
+            <a href=/invoices/?sort={{ oldsort }}&sort={{field.name}}&{{ sorturl }}>
+            {{ sym }} {{ field.label }} {{ sym }}
+        {% endif %}
+            </a>
+        </td>
+    {% endfor %}
+    </tr>
+    {% for x in inv %}
+    <tr>
+        <td>{{ x.id }}</td>
+        <td>{{ x.invno }}</td>
+        <td>{{ x.type.type }}</td>
+        <td>{{ x.seller.title }}</td>
+        <td>{{ x.customer.title }}</td>
+        <td>{{ x.date }}</td>
+        <td>{{ x.sum|default_if_none:"нет" }}</td>
+        <td>{{ x.sumB|default_if_none:"нет" }}</td>
+        <td>{{ x.released|default_if_none:"нет" }}</td>
+        <td>{{ x.releasedB|default_if_none:"нет" }}</td>
+        <td>{{ x.payed|default_if_none:"нет" }}</td>
+        <td>{{ x.compl_date|default_if_none:"нет" }}</td>
+        <td>{{ x.ID_SW|default_if_none:"нет" }}</td>
+        <td>{{ x.store.store }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
+{% block workAreaFooter %}
+    <div>
+    {% for page in pages %}
+        <a href="/invoices/page/{{ page }}?{{ url }}">{{ page }}</a>
+    {% endfor %}
+    </div>
+
+    {{ form.errors }}
+
+    <ul>sort {{ sorturl }}</ul>
+    <ul>cd {{ cd }}</ul>
+    <ul>url {{ url }}</ul>
+    <ul>GET {{ l }}</ul>
+{% endblock %}

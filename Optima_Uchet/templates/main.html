@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Оптима-учет{% endblock %}</title>
+        <meta charset="utf-8">
+        <link href="/static/css/styles.css" media="screen" rel="stylesheet" type="text/css">
+        <script src="/static/js/jquery-2.0.3.min.js" type="text/javascript"></script>
+        <script src="/static/js/jquery.cookie.js" type="text/javascript"></script>
+        <script src="/static/js/defaultValue.js" type="text/javascript"></script>
+        <script src="/static/js/ui.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="mainContainer">
+            <!-- HEADER begin -->
+            <div id="header">
+                <div class="leftCol" id="logo">
+                    <a href="/">logo</a>
+                </div>
+                <div class="rightCol" id="topMenu">
+                    <button onclick="alert($.cookie($('#cookieText').val()));  alert(sidebarMenusList.join(',')); return false; generateSidebarMenusListWithCookiesValue('1,1,1'.split);">test</button>
+                    <input type="text" value="sidebarMenusShowed" id="cookieText" />
+                    links
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!-- HEADER end -->
+            <!-- CONTENT begin -->
+            <div id="content">
+                <!-- SIDEBAR begin -->
+                <div class="leftCol" id="sidebar">
+                    <button id="hideShowSidebarBtn" title="Скрыть" onclick="hideShowSidebar('click')" >Скрыть</button>
+                    <div id="sidebarInner">
+                        <ul class="sidebarMenu" id="tablesMenu">
+                            <button class="hideShowSidebarMenuBtn" title="Скрыть" id="test" onclick="hideShowSidebarMenu(this)">tablesMenu</button>
+                            <li><a href="/invoices/">Заказы</a></li>
+                            <li>2t</li>
+                            <li>3t</li>
+                            <li>4t</li>
+                        </ul>
+
+                        <ul class="sidebarMenu" id="queriesMenu">
+                            <button class="hideShowSidebarMenuBtn" title="Скрыть" id="test" onclick="hideShowSidebarMenu(this)">queriesMenu</button>
+                            <li>1q</li>
+                            <li>2q</li>
+                            <li>3q</li>
+                            <li>4q</li>
+                            <li>5q</li>
+                            <li>6q</li>
+                        </ul>
+
+                        <ul class="sidebarMenu" id="formsMenu">
+                            <button class="hideShowSidebarMenuBtn" title="Скрыть" id="test" onclick="hideShowSidebarMenu(this)">formsMenu</button>
+                            <li>1f</li>
+                            <li>2f</li>
+                            <li>3f</li>
+                            <li>4f</li>
+                            <li>5f</li>
+                            <li>6f</li>
+                            <li>7f</li>
+                            <li>8f</li>
+                            <li>9f</li>
+                            <li>10f</li>
+                        </ul>
+
+                        <ul class="sidebarMenu" id="ordersMenu">
+                            <button class="hideShowSidebarMenuBtn" title="Скрыть" id="test" onclick="hideShowSidebarMenu(this)">ordersMenu</button>
+                            <li>1o</li>
+                            <li>2o</li>
+                            <li>3o</li>
+                            <li>4o</li>
+                            <li>5o</li>
+                            <li>6o</li>
+                            <li>7o</li>
+                            <li>8o</li>
+                            <li>9o</li>
+                            <li>10o</li>
+                            <li>11o</li>
+                            <li>12o</li>
+                            <li>13o</li>
+                            <li>14o</li>
+                            <li>15o</li>
+                            <li>16o</li>
+                            <li>17o</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- SIDEBAR end -->
+                <!-- WORK AREA begin -->
+                <div class="rightCol" id="workArea">
+                    <div id="workAreaTitle">{% block workAreaTitle %}Заголовок{% endblock %}</div>
+                    <div id="workAreaMiddle">
+                        <div id="workAreaMainMenu" class="hidden">
+                            <div class="title" onclick="hideShowWorkAreaMainMenu();" title="Показать меню">{% block workAreaMainMenuTitle %}...{% endblock %}</div>
+                            <div class="content">{% block workAreaMainMenuContent %}{% endblock %}</div>
+                        </div>
+                        <div id="workAreaContent">{% block workAreaContent %}{% endblock %}</div>
+                    </div>
+                    <div id="workAreaFooter">{% block workAreaFooter %}{% endblock %}</div>
+                </div>
+                <!-- WORK AREA end -->
+                <div class="clear"></div>
+            </div>
+            <!-- CONTENT end -->
+        </div>
+    </body>
+</html>
